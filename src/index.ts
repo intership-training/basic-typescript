@@ -33,3 +33,59 @@ export function groupedCarNamesByYear(cars: CarRanking[]): groupedYear {
         return acc;
     }, {});
 }
+
+// s-99
+// P01 (*) Find the last element of a list.
+var list1:number[] = [1, 1, 2, 3, 5, 8]
+let lastIndex = list1[list1.length - 1]
+console.log(lastIndex);
+
+//P02 (*) Find the last but one element of a list.
+let onelastIndex = list1[list1.length - 2]
+console.log(onelastIndex);
+
+//P03 (*) Find the index element of a list.
+let findIndex = (list1:number[], index:number) => {
+    return list1[index]
+}
+console.log(findIndex(list1,0))
+
+// P04 (*) Find the number of elements of a list.
+let findLength = list1.length
+console.log(findLength)
+
+// P05 (*) Reverse a list.
+let revLength = list1.reverse();
+console.log(revLength)
+
+function isPalindrome(listA:number[]):boolean{
+    let revList = [...listA].reverse();
+    console.log(listA)
+    console.log(revList)
+
+    for (let i = 0; i < listA.length; i++){
+        if (listA[i] !== revList[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+var list2:number[] = [5, 8, 1]
+console.log(isPalindrome(list2))
+
+// function flatten(listA:any[]):any[]{
+//     return listA.flatMap((i) => i);
+// }
+
+function flatten(listA:any[]):any[]{
+    return listA.reduce((acc, val) => Array.isArray(val) ? acc.concat(flatten(val)) : acc.concat(val), []);
+}
+
+
+let nestedList: Array<any> = [1, 2, [[3, 4], [5, [6]]]];
+
+console.log(flatten(nestedList));
+
+
+
